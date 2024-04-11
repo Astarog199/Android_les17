@@ -3,7 +3,7 @@ package com.example.lesson17.movielist
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.lesson17.models.MovieModel
+import com.example.lesson17.models.PhotosModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,7 +16,7 @@ class MovieListViewModel private constructor(private val repository: MovieListRe
     private  val _isLoading = MutableStateFlow(false)
     val isLoading = _isLoading.asStateFlow()
 
-    private val _movies = MutableStateFlow<List<MovieModel>>(emptyList())
+    private val _movies = MutableStateFlow<List<PhotosModel>>(emptyList())
     val movies = _movies.asStateFlow()
 
     val filterEnabled = MutableStateFlow(false)

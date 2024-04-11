@@ -12,17 +12,8 @@ import retrofit2.http.Query
 import retrofit2.converter.gson.GsonConverterFactory
 //https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY
 interface MovieListApi {
-    @Headers("X-API-KEY: $api_key")
-    @GET("/api/v2.2/films/premieres")
-    suspend fun movies(@Query("year") year: Int, @Query("month") month: String): MovieList
-
-    @Headers("X-API-KEY: $api_key")
-    @GET("/api/v2.2/films/top?type=TOP_250_BEST_FILMS")
-    suspend fun topList(@Query("page") page: Int): PagedMovieList
-
-    private companion object {
-        private const val api_key = "KNssYOKcCeKz6cr88qRsa8ja8c0OrmQFHxxgnlcK"
-    }
+    @GET("/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=KNssYOKcCeKz6cr88qRsa8ja8c0OrmQFHxxgnlcK")
+    suspend fun movies(): MovieList
 }
 
 val retrofit = Retrofit

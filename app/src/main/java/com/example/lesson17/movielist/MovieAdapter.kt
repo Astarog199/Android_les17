@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson17.databinding.MovieItemBinding
 import com.bumptech.glide.Glide
-import com.example.lesson17.models.MovieModel
+import com.example.lesson17.models.PhotosModel
 
 class MovieAdapter() : RecyclerView.Adapter<MysimpleViewHolder>() {
-    private var data: List<MovieModel> = emptyList()
+    private var data: List<PhotosModel> = emptyList()
 
-    fun setData(data: List<MovieModel>){
+    fun setData(data: List<PhotosModel>){
         this.data = data
         notifyDataSetChanged()
     }
@@ -29,14 +29,11 @@ class MovieAdapter() : RecyclerView.Adapter<MysimpleViewHolder>() {
     override fun onBindViewHolder(holder: MysimpleViewHolder, position: Int) {
         val item = data.getOrNull(position)
         with(holder.binding) {
-            title.text = item?.nameRu ?: ""
-            genres.text = item?.genres?.joinToString(", "){ it.genre}
-            description.text = "Премьера ${item?.premiereRu}"
-            countries.text = item?.countries ?.joinToString(", ") { it.country }
+            title.text = item?.camera?.full_name ?: ""
             item?.let {
                 Glide
                     .with(poster.context)
-                    .load(it.posterUrlPreview)
+                    .load(it.img_src)
                     .into(poster)
             }
         }
