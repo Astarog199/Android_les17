@@ -7,20 +7,20 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.example.lesson17.R
 import com.example.lesson17.databinding.ActivityMainBinding
-import com.example.lesson17.databinding.FragmentMovieListBinding
+import com.example.lesson17.databinding.FragmentPhotoListBinding
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DataBindingUtil.setContentView<FragmentMovieListBinding>(this, R.layout.fragment_movie_list)
+        DataBindingUtil.setContentView<FragmentPhotoListBinding>(this, R.layout.fragment_photo_list)
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportFragmentManager.commit {
-            replace<MovieListF>(R.id.fragment_container)
-            addToBackStack(MovieListF::class.java.simpleName)
+            replace<PhotoListF>(R.id.fragment_container)
+            addToBackStack(PhotoListF::class.java.simpleName)
         }
     }
 }

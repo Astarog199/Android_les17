@@ -4,59 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:foreground="?attr/selectableItemBackground"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/poster"
+        android:id="@+id/image"
         android:layout_width="0dp"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         tools:src="@tools:sample/avatars"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="4:6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-        app:layout_constraintStart_toEndOf="@id/poster"
+        app:layout_constraintStart_toEndOf="@id/image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Title" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/genres"
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@id/poster"
+        app:layout_constraintStart_toEndOf="@id/image"
         app:layout_constraintTop_toBottomOf="@id/title"
-        tools:text="Genres" />
+        tools:text="Date" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@id/poster"
-        app:layout_constraintTop_toBottomOf="@id/genres"
-        tools:text="Description" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/countries"
+        android:id="@+id/rover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-        app:layout_constraintStart_toEndOf="@id/poster"
+        app:layout_constraintStart_toEndOf="@id/image"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/description"
-        tools:text="Title" />
+        app:layout_constraintTop_toBottomOf="@id/date"
+        tools:text="rover" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -9,17 +9,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class MovieListViewModel private constructor(private val repository: MovieListRepository)
+class PhotoListViewModel private constructor(private val repository: PhotoListRepository)
     : ViewModel() {
-    constructor() : this(MovieListRepository())
+    constructor() : this(PhotoListRepository())
 
-    private  val _isLoading = MutableStateFlow(false)
-    val isLoading = _isLoading.asStateFlow()
-
-    private val _movies = MutableStateFlow<List<PhotosModel>>(emptyList())
-    val movies = _movies.asStateFlow()
-
-    val filterEnabled = MutableStateFlow(false)
+    private val _photos = MutableStateFlow<List<PhotosModel>>(emptyList())
+    val photos = _photos.asStateFlow()
 
     init {
         loadPremieres()
@@ -28,9 +23,9 @@ class MovieListViewModel private constructor(private val repository: MovieListRe
     private fun loadPremieres(){
         viewModelScope.launch(Dispatchers.IO) {
             kotlin.runCatching {
-                repository.getPremieres(2022, "JANUARY")
+                repository.getPremieres()
             }.fold(
-                onSuccess = { _movies.value = it},
+                onSuccess = { _photos.value = it},
                 onFailure = { Log.d("BlankViewModel", it.message ?: "")}
             )
         }
@@ -39,5 +34,4 @@ class MovieListViewModel private constructor(private val repository: MovieListRe
     fun refresh() {
         loadPremieres()
     }
-
 }

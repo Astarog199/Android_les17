@@ -5,16 +5,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pagedmovielist.MovieListF">
-
+    tools:context=".pagedmovielist.PhotoListF">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="-282dp">
-
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -23,26 +21,15 @@
             android:layout_marginBottom="10dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@id/filter"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/movie_item" />
-
-
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:id="@+id/filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="@={viewModel.filterEnabled}"
-            android:text="Фильтровать"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            tools:listitem="@layout/photo_item" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
         <variable
             name="viewModel"
-            type="com.example.lesson17.movielist.MovieListViewModel" />
+            type="com.example.lesson17.movielist.PhotoListViewModel" />
         <import type="android.view.View"/>
 
     </data>

@@ -1,19 +1,23 @@
 package com.example.lesson17.API
 
 
-import com.example.lesson17.models.MovieList
-import com.example.lesson17.models.PagedMovieList
+import com.example.lesson17.models.PhotoList
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.Query
 import retrofit2.converter.gson.GsonConverterFactory
-//https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY
-interface MovieListApi {
-    @GET("/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=KNssYOKcCeKz6cr88qRsa8ja8c0OrmQFHxxgnlcK")
-    suspend fun movies(): MovieList
+import retrofit2.http.Headers
+
+interface PhotoListApi {
+
+    @Headers("X-API-KEY: $api_key")
+    @GET("/mars-photos/api/v1/rovers/curiosity/photos?sol=1000")
+    suspend fun movies(): PhotoList
+
+    private companion object{
+        private const val api_key = "KNssYOKcCeKz6cr88qRsa8ja8c0OrmQFHxxgnlcK"
+    }
 }
 
 val retrofit = Retrofit
@@ -25,4 +29,4 @@ val retrofit = Retrofit
     .baseUrl("https://api.nasa.gov")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
-    .create(MovieListApi::class.java)
+    .create(PhotoListApi::class.java)

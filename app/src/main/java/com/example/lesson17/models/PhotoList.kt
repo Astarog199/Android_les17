@@ -1,6 +1,6 @@
 package com.example.lesson17.models
 
-data class MovieList (
+data class PhotoList (
     val total: Int,
-    val items: List<PhotosModel>
+    val photos: List<PhotosModel>
 )
